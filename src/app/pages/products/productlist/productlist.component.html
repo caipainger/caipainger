@@ -9,8 +9,8 @@
       <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
     </svg>
     <div class="card-body">
-        <button class="btn btn-primary m-2 text-capitalize" [routerLink]="['/productdetails' ]">details</button>
-        <a href="#" class="card-link">Another link</a>
+        <button class="btn btn-primary m-2 text-capitalize" (click)="onGoToDetails(item)">details</button>
+
     </div>
     <div class="card-footer text-muted">
         2 days ago
