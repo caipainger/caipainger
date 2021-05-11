@@ -12,7 +12,7 @@ import { HeaderModule } from './shared/components/header/header.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
