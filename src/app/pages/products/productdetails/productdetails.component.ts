@@ -31,5 +31,8 @@ export class ProductdetailsComponent implements OnInit {
     this.navigationextras.state = item;
    alert('has been deleted succesfull'+ this.navigationextras);
   }
+  onGoToBack(): void{
+  this.router.navigate(['productlist']);
+  }
 
 }
