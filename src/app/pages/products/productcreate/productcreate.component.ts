@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { Products } from 'src/app/shared/models/products.interface';
 
 @Component({
   selector: 'app-productcreate',
@@ -17,22 +18,25 @@ export class ProductcreateComponent implements OnInit {
       value: null
     }
   };
+  
+    
+  
   constructor(private router: Router, private formbuild: FormBuilder) { 
     const navigation =this.router.getCurrentNavigation();
-    this.valueitem = navigation?.extras?.state;
+    this.valueitem = navigation?.extras?.state?.value;
     this.CreateProductForm();
   }
 
   ngOnInit(): void {
     if(typeof  this.valueitem === 'undefined'){
-      this.router.navigate(['productdetails']);
+      this.router.navigate(['productcreate']);
     }else{
       this.productsForm.patchValue(this.valueitem);
     }
   }
   onSave(): void{
     
-    
+    console.log('saved',this.productsForm.value);
   }
   onCreate(): void{
     this.router.navigate(['productcreate']);
@@ -49,9 +53,9 @@ export class ProductcreateComponent implements OnInit {
       name: ['',Validators.required],
       type: ['',Validators.required],
       price: ['',Validators.required],
-      cant: ['',Validators.required],
+      quantity: ['',Validators.required],
       description: ['',Validators.required],
-      image: ['']
+      image: ['imagemap']
     });
   }  
 

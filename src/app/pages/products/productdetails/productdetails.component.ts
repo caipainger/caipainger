@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Products } from 'src/app/shared/models/products.interface';
 
 @Component({
   selector: 'app-productdetails',
@@ -15,20 +16,21 @@ export class ProductdetailsComponent implements OnInit {
   };
   constructor(private router: Router) { 
     const navigation =this.router.getCurrentNavigation();
-    this.valueitem = navigation?.extras?.state;
+    this.valueitem = navigation?.extras?.state?.value;
   }
 
   ngOnInit(): void {
+   
   }
-  onGoToEdit(item: any): void{
-    this.navigationextras.state = item;
+  onGoToEdit(valueitem: any): void{
+    this.navigationextras.state = valueitem;
     this.router.navigate(['productcreate'], this.navigationextras);
   }
   onGoToCreate(): void{
     this.router.navigate(['productcreate']);
   }
-  onGoToDelete(item: any): void{
-    this.navigationextras.state = item;
+  onGoToDelete(valueitem: any): void{
+    this.navigationextras.state = valueitem;
    alert('has been deleted succesfull'+ this.navigationextras);
   }
   onGoToBack(): void{
